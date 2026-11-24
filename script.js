@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://127.0.0.1:8000"; // change this when you deploy the backend
+//const API_BASE_URL = "http://127.0.0.1:8000"; // change this when you deploy the backend
+const API_BASE_URL = "https://mindscore-iryu.onrender.com";
 const SCORE_MAX = 10;
 
 // Country values the backend groups explicitly (must match `top_countries` in main.py)
