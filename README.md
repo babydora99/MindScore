@@ -6,9 +6,9 @@ The application uses a trained Machine Learning model integrated with a FastAPI 
 
 ## 🌐 Live Demo
 
-**[🚀 View Live Application]([https://mindscore-1-kgpt.onrender.com/])**
+**[🚀 View Live Application](https://mindscore-1-kgpt.onrender.com/)**
 
-**Backend API:** [View API]([https://mindscore-iryu.onrender.com/])
+**Backend API:** [View API](https://mindscore-iryu.onrender.com/)
 
 **API Documentation:** [Swagger UI](https://mindscore-iryu.onrender.com/docs)
 
@@ -119,7 +119,7 @@ pip install -r requirements.txt
 
 **Important:** Use the same Scikit-learn version used during model training to maintain model compatibility.
 
-### 3. Start the FastAPI Server
+### Start the FastAPI Server
 
 ```bash
 uvicorn main:app --reload
@@ -137,7 +137,7 @@ Access interactive API documentation:
 http://127.0.0.1:8000/docs
 ```
 
-### 4. Run the Frontend
+### Run the Frontend
 
 Open the `frontend` folder in VS Code.
 
