@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MindScore – Mental Health Score Prediction</title>
+  <meta name="description" content="ML-based estimate of a mental health score from digital lifestyle habits. Not a medical diagnosis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#prediction">Skip to prediction form</a>
+
+<header class="nav">
+  <a href="#home" class="logo"><span class="logo-mark" aria-hidden="true"></span>MindScore</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+  <nav id="navLinks" class="links">
+    <a href="#home">Home</a><a href="#about">About</a>
+    <a href="#prediction" class="btn btn-primary btn-sm">Check My Score</a>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h1>Understand Your Digital Lifestyle. Discover Your Mental Wellness.</h1>
+    <p>Explore how your social media habits, sleep patterns, academic activities, and lifestyle choices relate to your predicted mental health score using Machine Learning.</p>
+    <div class="actions">
+      <a href="#prediction" class="btn btn-primary">Get Started</a>
+    </div>
+    <p class="note">This tool gives an ML-based estimate. It is not a medical diagnosis.</p>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 400 340" role="img">
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9bcf5"/><stop offset="1" stop-color="#b7e6d4"/></linearGradient></defs>
+      <circle cx="200" cy="170" r="140" fill="url(#g1)" opacity=".55"/>
+      <circle cx="200" cy="170" r="92" fill="#fff"/>
+      <path d="M150 175q25-55 50-5t50-10" fill="none" stroke="#6d56c9" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="120" cy="90" r="18" fill="#a9d6f5"/><circle cx="300" cy="260" r="26" fill="#b7e6d4"/><circle cx="320" cy="100" r="12" fill="#c9bcf5"/>
+    </svg>
+    <div class="float f1"><b>Sleep</b><span>hours per night</span></div>
+    <div class="float f2"><b>Screen time</b><span>daily usage</span></div>
+    <div class="float f3"><b>Stress</b><span>self-reported</span></div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <h2>About the project</h2>
+  <p class="lead">MindScore turns everyday habits into a predicted score, using a model trained on student lifestyle data.</p>
+  <div class="grid">
+    <article class="card"><h3>📱 Social media</h3><p>Analyzes platform, purpose, daily hours and phone unlocks.</p></article>
+    <article class="card"><h3>🎓 Academic habits</h3><p>Considers academic level and study hours.</p></article>
+    <article class="card"><h3>😴 Sleep &amp; activity</h3><p>Evaluates nightly sleep and physical activity.</p></article>
+    <article class="card"><h3>🧠 Stress level</h3><p>Includes your self-reported stress.</p></article>
+    <article class="card"><h3>🤖 Trained ML model</h3><p>A trained model predicts the mental health score.</p></article>
+  </div>
+</section>
+
+<section id="prediction" class="section tinted">
+  <h2>Predict your score</h2>
+  <div class="panel" id="formPanel">
+    <ol class="progress" id="progress" aria-label="Form progress">
+      <li>Personal</li><li>Social media</li><li>Lifestyle</li><li>Review</li>
+    </ol>
+    <form id="predictForm" novalidate>
+      <fieldset class="step active" data-step="0">
+        <legend>Let's start with you</legend>
+        <div class="field"><label for="age">Age <i>*</i></label>
+          <input id="age" name="age" type="number" inputmode="numeric" min="1" max="99" step="1" placeholder="e.g. 21"><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="gender">Gender <i>*</i></label>
+          <select id="gender" name="gender"><option value="">Select…</option><option>Male</option><option>Female</option></select><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="country">Country <i>*</i></label>
+          <select id="country" name="country"><option value="">Select…</option></select><small class="err" aria-live="polite"></small></div>
+        <div class="field hidden" id="otherWrap"><label for="countryOther">Your country <i>*</i></label>
+          <input id="countryOther" type="text" maxlength="60" placeholder="Type your country"><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="academic_level">Academic level <i>*</i></label>
+          <select id="academic_level" name="academic_level"><option value="">Select…</option><option>Undergraduate</option><option>Graduate</option><option>High School</option></select><small class="err" aria-live="polite"></small></div>
+      </fieldset>
+
+      <fieldset class="step" data-step="1">
+        <legend>How do you use social media?</legend>
+        <div class="field"><label for="most_used_platform">Most used platform <i>*</i></label>
+          <select id="most_used_platform" name="most_used_platform"><option value="">Select…</option>
+            <option>Facebook</option><option>LinkedIn</option><option>Instagram</option><option>Snapchat</option><option>Twitter</option><option>YouTube</option><option>TikTok</option><option>LINE</option><option>KakaoTalk</option><option>VKontakte</option><option>WhatsApp</option><option>WeChat</option></select><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="purpose_of_use">Purpose of use <i>*</i></label>
+          <select id="purpose_of_use" name="purpose_of_use"><option value="">Select…</option><option>Networking</option><option>Education</option><option>Entertainment</option><option>News</option></select><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="avg_daily_usage_hours">Average daily usage (hours) <i>*</i></label>
+          <input id="avg_daily_usage_hours" name="avg_daily_usage_hours" type="number" inputmode="decimal" step="any" placeholder="e.g. 5.5"><small class="hint">More than 0 and less than 24</small><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="daily_unlocks">Daily phone unlocks <i>*</i></label>
+          <input id="daily_unlocks" name="daily_unlocks" type="number" inputmode="numeric" step="1" placeholder="e.g. 45"><small class="hint">Whole number, more than 0</small><small class="err" aria-live="polite"></small></div>
+      </fieldset>
+
+      <fieldset class="step" data-step="2">
+        <legend>How does a normal day look?</legend>
+        <div class="field"><label for="study_hours">Study hours per day <i>*</i></label>
+          <input id="study_hours" name="study_hours" type="number" inputmode="decimal" step="any" placeholder="e.g. 4"><small class="hint">More than 0 and less than 24</small><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="physical_activity_hours">Physical activity (hours) <i>*</i></label>
+          <input id="physical_activity_hours" name="physical_activity_hours" type="number" inputmode="decimal" step="any" placeholder="e.g. 1"><small class="hint">More than 0 and less than 3</small><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="sleep_hours_per_night">Sleep per night (hours) <i>*</i></label>
+          <input id="sleep_hours_per_night" name="sleep_hours_per_night" type="number" inputmode="decimal" step="any" placeholder="e.g. 7"><small class="hint">More than 0 and less than 24</small><small class="err" aria-live="polite"></small></div>
+        <div class="field"><label for="stress_level">Stress level <i>*</i></label>
+          <select id="stress_level" name="stress_level"><option value="">Select…</option><option>Low</option><option>Medium</option><option>High</option><option>Very High</option></select><small class="err" aria-live="polite"></small></div>
+      </fieldset>
+
+      <fieldset class="step" data-step="3">
+        <legend>Does this look right?</legend>
+        <dl id="review" class="review"></dl>
+        <p class="note">Check the details, then select Predict score.</p>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-ghost" id="prevBtn">Previous</button>
+        <button type="button" class="btn btn-ghost" id="resetBtn">Reset form</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+        <button type="submit" class="btn btn-primary hidden" id="submitBtn">Predict score</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="panel hidden" id="loading" role="status" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div><p>Asking the model…</p>
+  </div>
+
+  <div class="panel hidden" id="apiError" role="alert">
+    <h3>Couldn't get a prediction</h3><p id="apiErrorMsg"></p>
+    <button type="button" class="btn btn-primary" id="retryBtn">Back to form</button>
+  </div>
+
+  <div class="panel hidden" id="results" aria-live="polite">
+    <h3>Predicted Mental Health Score</h3>
+    <div class="gauge">
+      <svg viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="85" class="gauge-bg"/>
+        <circle cx="100" cy="100" r="85" class="gauge-fg" id="gaugeFg" transform="rotate(-90 100 100)"/>
+      </svg>
+      <div class="gauge-num"><span id="scoreNum">–</span><small id="scoreMax"></small></div>
+    </div>
+    <p class="explain" id="scoreExplain"></p>
+    <h4>Your submitted information</h4>
+    <dl id="insights" class="review"></dl>
+    <div class="form-actions">
+      <button type="button" class="btn btn-ghost" id="printBtn">Print / save as PDF</button>
+      <button type="button" class="btn btn-primary" id="againBtn">Predict again</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<script src="script.js"></script>
+</body>
+</html>
